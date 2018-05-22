@@ -1,0 +1,46 @@
+* {margin: 0; padding: 0;}
+
+.ShopListItem {
+  margin: 20px;
+  max-width: 500px;
+  background-color: salmon;
+}
+
+/* ul {
+  list-style-type: none;
+  width: 500px;
+} */
+
+.ShopListItemTitle {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  text-align: left;
+}
+
+.ShopListItemThumbnail {
+  float: left;
+  margin: 0 15px 0 0;
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+}
+
+.ShopListItemDescription {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  text-align: left;
+}
+
+.ShopListItemPrice {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+  color: grey;
+  text-align: left;
+}
+
+li {
+  padding: 10px;
+  overflow: auto;
+}
+
+li:hover {
+  background: #eee;
+  cursor: pointer;
+}
