@@ -24,6 +24,14 @@
   width: 100px;
 }
 
+.ShopListItemThumbnailMobile {
+  float: left;
+  margin: 8px 0 10px 0;
+  background-color: yellow;
+  height: 60px;
+  width: 60px;
+}
+
 .ShopListItemDescription {
   font: 200 12px/1.5 Georgia, Times New Roman, serif;
   text-align: left;
@@ -33,6 +41,14 @@
   font: 200 12px/1.5 Georgia, Times New Roman, serif;
   color: grey;
   text-align: left;
+}
+
+.MidSection {
+  background-color: pink;
+}
+
+.ThumbnailContainer {
+  background-color: green;
 }
 
 li {

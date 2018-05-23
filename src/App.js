@@ -5,6 +5,25 @@ import ShopListItem from './components/ShopListItem'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      windowIsMobile: false
+    }
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ windowIsMobile: window.innerWidth < 500 });
+  };
+
   getProductList = () => {
     return ([
     {
@@ -147,6 +166,9 @@ class App extends Component {
   }
 
   renderListItem = (item) => {
+    const { Name, Price, Buyable, Id } = item;
+    if (!Name || !Price || !Buyable || !Id) return null;
+
     return (
       <li>
         <ShopListItem
@@ -161,14 +183,17 @@ class App extends Component {
 
   render() {
     const products = this.getProductList()
+    const contentContainerStyle = this.state.windowIsMobile ? "ContentContainerMobile" : "ContentContainer";
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Apoteket</h1>
         </header>
-        <ul>
-          { products.map(this.renderListItem)}
-        </ul>
+        <div className={contentContainerStyle}>
+          <ul>
+            { products.map(this.renderListItem)}
+          </ul>
+        </div>
       </div>
     );
   }
