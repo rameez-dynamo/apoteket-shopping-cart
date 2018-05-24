@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ShopListItem from './components/ShopListItem'
+import { connect } from 'react-redux'
 
 class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      windowIsMobile: false
+      windowIsMobile: false,
+      products: null,
     }
   }
 
@@ -199,4 +201,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    addArticle: article => dispatch(addArticle(article))
+  };
+};
+
+const mapStateToProps = state => {
+  products: state.products
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
