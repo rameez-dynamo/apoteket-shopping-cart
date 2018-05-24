@@ -32,6 +32,16 @@
   margin: auto;
 }
 
+li {
+  /* padding: 10px; */
+  overflow: auto;
+}
+
+li:hover {
+  background: #eee;
+  /* cursor: pointer; */
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

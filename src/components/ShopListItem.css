@@ -50,13 +50,3 @@
 .ThumbnailContainer {
   background-color: green;
 }
-
-li {
-  padding: 10px;
-  overflow: auto;
-}
-
-li:hover {
-  background: #eee;
-  cursor: pointer;
-}
