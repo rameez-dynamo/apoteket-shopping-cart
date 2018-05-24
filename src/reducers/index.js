@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS }
+import { LOAD_PRODUCTS } from '../constants'
 
 const initialState = {
   products: []

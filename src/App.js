@@ -207,8 +207,8 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
   products: state.products
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
