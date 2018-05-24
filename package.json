@@ -6,9 +6,12 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-grid-system": "^3.2.3",
+    "react-loader-spinner": "^2.1.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "reactjs-spinner": "https://github.com/jmcginty/react-spinner",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "webpack-dev-server --open --mode development",
