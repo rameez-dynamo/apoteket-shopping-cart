@@ -71,7 +71,7 @@ class ProductList extends Component {
 
   render() {
     const { products } = this.state;
-    const contentContainerStyle = this.state.windowIsMobile ? "ContentContainerMobile" : "ContentContainer";
+    const contentContainerStyle = this.state.windowIsMobile ? "ProductListContainerMobile" : "ProductListContainer";
     return (
       <div className={contentContainerStyle}>
         { products ? this.renderProductList() : this.renderLoader() }

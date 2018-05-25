@@ -41,16 +41,11 @@
 }
 
 .GoToCart {
-  padding-left: 3px;
-  padding-right: 3px;
-  height: 20px;
-  float: right;
-  font: 200 12px/1.5 Helvetica-Neue, Helvetica, sans-serif;
+  line-height: 10px;
+  font: 200 10px/1.5 Helvetica-Neue, Helvetica, sans-serif;
 }
 
 .GoToCartMobile {
   padding: 2px;
-  margin-top: 2px;
-  float: right;
   font: 200 8px/1.5 Helvetica-Neue, Helvetica, sans-serif;
 }

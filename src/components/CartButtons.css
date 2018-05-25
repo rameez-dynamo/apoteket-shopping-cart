@@ -15,7 +15,15 @@
 }
 
 .ItemCount {
-  text-align: center;
+  /* text-align: center; */
+  background-color: green;
+  margin: auto;
+}
+
+.ItemCountContainer {
+  align-content: center;
+  justify-content: center;
+  background-color: orange;
   margin: auto;
 }
 

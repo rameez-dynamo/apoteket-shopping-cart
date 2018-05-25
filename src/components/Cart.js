@@ -6,7 +6,7 @@ import Loader from 'react-loader-spinner'
 class Cart extends Component {
   render() {
     return (
-      <div>
+      <div className="CartContainer">
         Cart component
       </div>
     )

@@ -1,6 +1,7 @@
 import './CartButtons.css';
 import React, { Component } from 'react';
-import { Col, Row, Container } from 'react-grid-system';
+// import { Col, Row, Container } from 'react-grid-system';
+import { Col, Row, Grid, Button } from 'react-bootstrap';
 
 export default class CartButtons extends Component {
 
@@ -21,25 +22,23 @@ export default class CartButtons extends Component {
   render() {
     const buttonStyle = this.state.isMobile ? "ButtonMobile" : "Button";
      return (
-       <Container className="Container">
+       <Grid className="Container">
         <Row>
-          <Col >
-            <button
+          <Col>
+            <Button
               className={buttonStyle}
-              onClick={this.props.onDecrement}>{'-'}</button>
+              onClick={this.props.onDecrement}>{'-'}</Button>
+          </Col>
+          <Col md={2}>
+            <span className="ItemCount">{this.state.itemCount}</span>
           </Col>
           <Col >
-            <div>
-              <span className="ItemCount">{this.state.itemCount}</span>
-            </div>
-          </Col>
-          <Col >
-            <button
+            <Button
               className={buttonStyle}
-              onClick={this.props.onIncrement}>{'+'}</button>
+              onClick={this.props.onIncrement}>{'+'}</Button>
           </Col>
         </Row>
-       </Container>
+       </Grid>
      )
   }
 }

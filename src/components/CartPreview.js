@@ -44,6 +44,7 @@ class CartPreview extends Component {
             <LinkButton
               to={'/cart'}
               className={`GoToCart${mobile}`}
+              bsSize={windowIsMobile ? "xsmall" : "small"}
             >
               Go to cart ->
             </LinkButton>

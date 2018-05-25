@@ -1,0 +1,11 @@
+.CartContainer {
+  max-width: 70%;
+  background-color: teal;
+  margin: auto;
+  padding-top: 80px;
+}
+
+.CartContainerMobile {
+  margin: auto;
+  padding-top: 80px;
+}
