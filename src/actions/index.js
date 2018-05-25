@@ -19,9 +19,14 @@ export const loadProducts = () => {
     dispatch(loadProductsInProgress())
     var products = null
     api.getProductList().then((res) => {
-      console.log('Got product list', res)
-      products = res
-      dispatch(loadProductsSuccess(products));
+      if (res instanceof Error) {
+        console.error('Error getting product list', res)
+        dispatch(loadProductsFailure(res))
+      } else {
+        console.log('Got product list', res)
+        products = res
+        dispatch(loadProductsSuccess(products));
+      }
     }).catch((error) => {
       console.error('Error getting product list', error)
       dispatch(loadProductsFailure(error))
@@ -36,10 +41,16 @@ export const addItemToCart = (cartItem) => {
   return dispatch => {
     dispatch(addItemToCartInProgress())
     api.addItemToCart(cartItem).then((res) => {
-      console.log('Added item to cart', res)
-      dispatch(addItemToCartSuccess(cartItem));
+      if (res instanceof Error) {
+        console.error('Error adding cart item', res)
+        dispatch(addItemToCartFailure(res))
+      } else {
+        console.log('Added item to cart', res)
+        dispatch(addItemToCartSuccess(cartItem));
+      }
     }).catch((error) => {
       console.error('Error adding cart item', error)
+      dispatch(addItemToCartFailure(error))
     })
   }
 }
@@ -52,8 +63,13 @@ export const getCart = () => {
   return dispatch => {
     dispatch(getCartInProgress())
     api.getCart().then((res) => {
-      console.log('Got cart', res)
-      dispatch(getCartSuccess(res));
+      if (res instanceof Error) {
+        console.error('Error getting cart', res)
+        dispatch(getCartFailure(res))
+      } else {
+        console.log('Got cart', res)
+        dispatch(getCartSuccess(res));
+      }
     }).catch((error) => {
       console.error('Error getting cart', error)
       dispatch(getCartFailure(error))

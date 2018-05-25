@@ -1,4 +1,6 @@
 
+const xKey = 'qwerty'
+
 export default class ApoteketApi {
   static getProductList() {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/products').then(response => {
@@ -13,13 +15,16 @@ export default class ApoteketApi {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/cart', {
          method: 'POST',
          headers: new Headers({
-           'X-Key': 'qwerty',
+           'X-Key': xKey,
            'Content-Type': 'application/json',
          }),
        body: JSON.stringify(item)
        }).then(response => {
-          console.log('addItemToCart response', response)
-            return response.json();
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error('Error getting products')
+            }
           }).catch(error => {
             return error;
           });
@@ -29,11 +34,15 @@ export default class ApoteketApi {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/cart', {
          method: 'GET',
          headers: new Headers({
-           'X-Key': 'qwerty',
+           'X-Key': xKey,
          }),
        // body: 'A=1&B=2'
      }).then(response => {
-       return response.json();
+       if (response.ok) {
+         return response.json();
+       } else {
+         throw new Error('Error getting cart items')
+       }
      }).catch(error => {
        return error;
      });
@@ -46,7 +55,11 @@ export default class ApoteketApi {
            'X-Key': 'qwerty',
          }),
      }).then(response => {
-       return response.json();
+       if (response.ok) {
+         return response.json();
+       } else {
+         throw new Error('Error clearing cart')
+       }
      }).catch(error => {
        return error;
      });
