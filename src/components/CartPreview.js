@@ -2,6 +2,7 @@ import './CartPreview.css';
 import React, { Component } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import cart from '../cart.gif'
+import LinkButton from './LinkButton'
 
 class CartPreview extends Component {
   constructor(props) {
@@ -40,9 +41,12 @@ class CartPreview extends Component {
             </Col>
           </Row>
           <Row>
-            <button className={`GoToCart${mobile}`}>
+            <LinkButton
+              to={'/cart'}
+              className={`GoToCart${mobile}`}
+            >
               Go to cart ->
-            </button>
+            </LinkButton>
           </Row>
         </Container>
       </div>
