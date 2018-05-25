@@ -4,6 +4,7 @@ import CartButtons from './CartButtons';
 import { Col, Row, Container } from 'react-grid-system';
 import { connect } from 'react-redux'
 import { addItemToCart } from '../actions'
+import _ from 'lodash';
 
 class ShopListItem extends Component {
 
@@ -25,6 +26,16 @@ class ShopListItem extends Component {
 
   handleWindowSizeChange = () => {
     this.setState({ windowIsMobile: window.innerWidth < 500 });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { cart } = nextProps;
+    const items = _.filter(cart, (item) => {
+      return item.Id == this.props.product.Id;
+    })
+    this.setState({
+      itemCount: items.length
+    })
   }
 
   render() {

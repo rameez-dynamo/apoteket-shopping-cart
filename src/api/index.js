@@ -4,8 +4,11 @@ const xKey = 'qwerty'
 export default class ApoteketApi {
   static getProductList() {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/products').then(response => {
-      console.log('getProductList response', response)
-      return response.json();
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Error getting products')
+      }
     }).catch(error => {
       return error;
     });
@@ -20,10 +23,11 @@ export default class ApoteketApi {
          }),
        body: JSON.stringify(item)
        }).then(response => {
+         console.log('Add item cart response', response)
             if (response.ok) {
-              return response.json();
+              return null;
             } else {
-              throw new Error('Error getting products')
+              throw new Error('Error adding item to cart')
             }
           }).catch(error => {
             return error;

@@ -32,7 +32,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case LOAD_PRODUCTS_SUCCESS:
-      console.log('Should update to new state', action)
+      // console.log('Should update to new state', action)
       return {
         ...state,
         products: action.products,
@@ -52,9 +52,9 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case ADD_ITEM_TO_CART_SUCCESS:
-      var newCart = state.cart
+      var newCart = Array.from(state.cart)
       newCart.push(action.cartItem)
-      console.log('Adding item to state cart', action.cartItem, state.cart)
+      // console.log('Adding item to state cart', action.cartItem, newCart) 
       return {
         ...state,
         cart: newCart,
@@ -73,10 +73,9 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_CART_SUCCESS:
-      var newCart = action.cart
       return {
         ...state,
-        cart: newCart,
+        cart: action.cart,
         getCartInProgress: false
       }
     case GET_CART_FAILURE:

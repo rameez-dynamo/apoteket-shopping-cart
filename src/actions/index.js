@@ -45,7 +45,6 @@ export const addItemToCart = (cartItem) => {
         console.error('Error adding cart item', res)
         dispatch(addItemToCartFailure(res))
       } else {
-        console.log('Added item to cart', res)
         dispatch(addItemToCartSuccess(cartItem));
       }
     }).catch((error) => {

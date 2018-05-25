@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import cart from '../cart.gif'
 import LinkButton from './LinkButton'
+import { connect } from 'react-redux'
 
 class CartPreview extends Component {
   constructor(props) {
     super(props)
     this.state = {
       windowIsMobile: false,
-      cartItems: []
     }
   }
 
@@ -23,11 +23,15 @@ class CartPreview extends Component {
 
   handleWindowSizeChange = () => {
     this.setState({ windowIsMobile: window.innerWidth < 500 });
-  };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('CartPreview receiving new props', nextProps)
+  }
 
   render() {
-    const { cartItems, windowIsMobile } = this.state;
-    const cartMessage = cartItems.length == 0 ? "Cart is empty" : `${cartItems.length} items.`
+    const { windowIsMobile } = this.state;
+    const cartMessage = this.props.cart.length == 0 ? "Cart is empty" : `${this.props.cart.length} items.`
     const mobile = windowIsMobile ? 'Mobile' : '';
     return (
       <div>
@@ -55,4 +59,8 @@ class CartPreview extends Component {
   }
 }
 
-export default CartPreview;
+const mapStateToProps = state => ({
+  cart: state.cart
+})
+
+export default connect(mapStateToProps, {})(CartPreview)
