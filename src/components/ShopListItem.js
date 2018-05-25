@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './ShopListItem.css';
 import CartButtons from './CartButtons';
 import { Col, Row, Container } from 'react-grid-system';
+import { connect } from 'react-redux'
+import { addItemToCart } from '../actions'
 
-export default class ShopListItem extends Component {
+class ShopListItem extends Component {
 
   constructor(props) {
     super(props)
@@ -23,11 +25,11 @@ export default class ShopListItem extends Component {
 
   handleWindowSizeChange = () => {
     this.setState({ windowIsMobile: window.innerWidth < 500 });
-  };
+  }
 
   render() {
     const { onBuyPressed, product } = this.props;
-    const { Name, Description, Pic, Price, Buyable } = product;
+    const { Name, Description, Pic, Price, Buyable, Id } = product;
     const thumbNailStyle = this.state.windowIsMobile ? 'ShopListItemThumbnailMobile' : 'ShopListItemThumbnail'
     return (
       <Container className="ShopListItem">
@@ -44,11 +46,16 @@ export default class ShopListItem extends Component {
             <CartButtons
               isMobile={this.state.windowIsMobile}
               itemCount={this.state.itemCount}
+              disabled={this.props.addItemToCartInProgress}
               onIncrement={() => {
-                var count = this.state.itemCount+1;
-                console.log('incrementing to ', count)
-                this.setState({
-                  itemCount: count
+                // var count = this.state.itemCount+1;
+                // console.log('incrementing to ', count)
+                // this.setState({
+                //   itemCount: count
+                // })
+                this.props.addItemToCart({
+                  Id,
+                  Quantity: 1,
                 })
               }}
               onDecrement={() => {
@@ -65,3 +72,16 @@ export default class ShopListItem extends Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  addItemToCartInProgress: state.addItemToCartInProgress,
+  cart: state.cart
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    addItemToCart: (cartItem) => dispatch(addItemToCart(cartItem))
+  })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopListItem)

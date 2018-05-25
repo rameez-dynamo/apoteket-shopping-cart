@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './ProductList.css';
 import ShopListItem from './ShopListItem'
 import { connect } from 'react-redux'
-import { loadProducts } from '../actions'
+import { loadProducts, getCart } from '../actions'
 import Loader from 'react-loader-spinner'
 
 class ProductList extends Component {
@@ -15,7 +15,7 @@ class ProductList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('Component will receive props', nextProps)
+    // console.log('Component will receive props', nextProps)
     if (nextProps.hasOwnProperty('products') && nextProps.products) {
       this.setState({
         products: nextProps.products,
@@ -25,6 +25,7 @@ class ProductList extends Component {
 
   componentWillMount() {
     this.props.loadProducts();
+    this.props.getCart();
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
@@ -83,12 +84,13 @@ class ProductList extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadProducts: () => dispatch(loadProducts())
+    loadProducts: () => dispatch(loadProducts()),
+    getCart: () => dispatch(getCart()),
   };
 };
 
 const mapStateToProps = state => ({
-  products: state ? state.products : []
+  products: state.products,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

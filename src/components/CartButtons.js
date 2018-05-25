@@ -8,14 +8,18 @@ export default class CartButtons extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemCount: 0
+      itemCount: 0,
+      isMobile: false,
+      disabled: false,
     }
   }
 
   componentWillReceiveProps(nextProps) {
+    // console.log('cartbuttons receiving new props', nextProps)
     this.setState({
       itemCount: nextProps.itemCount,
       isMobile: nextProps.isMobile,
+      disabled: nextProps.disabled,
     })
   }
 
@@ -26,16 +30,22 @@ export default class CartButtons extends Component {
         <Row>
           <Col>
             <Button
+              bsStyle="secondary"
               className={buttonStyle}
-              onClick={this.props.onDecrement}>{'-'}</Button>
+              onClick={this.props.onDecrement}
+              disabled={this.props.disabled}
+              >{'-'}</Button>
           </Col>
           <Col md={2}>
             <span className="ItemCount">{this.state.itemCount}</span>
           </Col>
           <Col >
             <Button
+              bsStyle="secondary"
               className={buttonStyle}
-              onClick={this.props.onIncrement}>{'+'}</Button>
+              onClick={this.props.onIncrement}
+              disabled={this.props.disabled}
+              >{'+'}</Button>
           </Col>
         </Row>
        </Grid>

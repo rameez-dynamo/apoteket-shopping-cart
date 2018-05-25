@@ -2,6 +2,7 @@
 export default class ApoteketApi {
   static getProductList() {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/products').then(response => {
+      console.log('getProductList response', response)
       return response.json();
     }).catch(error => {
       return error;
@@ -10,13 +11,14 @@ export default class ApoteketApi {
 
   static addItemToCart(item) {
     return fetch('http://apoteket-uppgift-fe.ginzburg.it/api/cart', {
-         method: 'GET',
+         method: 'POST',
          headers: new Headers({
            'X-Key': 'qwerty',
            'Content-Type': 'application/json',
          }),
        body: JSON.stringify(item)
        }).then(response => {
+          console.log('addItemToCart response', response)
             return response.json();
           }).catch(error => {
             return error;
