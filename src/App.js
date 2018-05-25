@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ShopListItem from './components/ShopListItem'
+import Header from './components/Header'
 import { connect } from 'react-redux'
 import { loadProducts } from './actions'
 import Loader from 'react-loader-spinner'
@@ -76,9 +77,7 @@ class App extends Component {
     const contentContainerStyle = this.state.windowIsMobile ? "ContentContainerMobile" : "ContentContainer";
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Apoteket</h1>
-        </header>
+        <Header />
         <div className={contentContainerStyle}>
           { products ? this.renderProductList() : this.renderLoader() }
           <div className="Footer" />

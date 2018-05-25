@@ -1,0 +1,52 @@
+.CartIcon {
+  height: 25px;
+  width: 25px;
+}
+
+.CartIconMobile {
+  height: 16px;
+  width: 16px;
+}
+
+.CartPreviewContainer {
+  /* background-color: red; */
+  width: 200px;
+  float: right;
+  margin: auto;
+}
+
+.CartPreviewContainerMobile {
+  /* background-color: red; */
+  width: 120px;
+  float: right;
+  margin-top: 10px;
+}
+
+.CartMessage {
+  color: white;
+  font: 200 12px/1.5 Helvetica-Neue, Helvetica, sans-serif;
+  line-height: 25px;
+  /* margin: auto; */
+}
+
+.CartMessageMobile {
+  color: white;
+  font: 200 8px/1.5 Helvetica-Neue, Helvetica, sans-serif;
+  line-height: 20px;
+  /* margin: auto; */
+}
+
+.GoToCart {
+  padding-left: 3px;
+  padding-right: 3px;
+  height: 20px;
+  float: right;
+  font: 200 12px/1.5 Helvetica-Neue, Helvetica, sans-serif;
+}
+
+.GoToCartMobile {
+  padding: 2px;
+  margin-top: 2px;
+  float: right;
+  font: 200 8px/1.5 Helvetica-Neue, Helvetica, sans-serif;
+}

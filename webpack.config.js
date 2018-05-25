@@ -31,19 +31,17 @@ module.exports = {
          ]
       },
       {
-          test: /\.svg$/,
-          use: [
-            {
-              loader: "babel-loader"
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
             },
-            {
-              loader: "react-svg-loader",
-              options: {
-                jsx: true // true outputs JSX tags
-              }
-            }
-          ]
-        }
+          },
+        ],
+      }
     ]
   },
   plugins: [

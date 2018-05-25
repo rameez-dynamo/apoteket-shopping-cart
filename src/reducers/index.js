@@ -7,7 +7,11 @@ import {
 
 const initialState = {
   products: [],
-  loadProductsInProgress: false
+  cart: [],
+  loadProductsInProgress: false,
+  addingItemToCartInProgress: false,
+  getCartInProgress: false,
+  deleteCartInProgress: false,
 };
 
 const rootReducer = (state = initialState, action) => {
