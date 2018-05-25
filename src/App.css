@@ -32,6 +32,14 @@
   margin: auto;
 }
 
+.Footer {
+  height: 30px;
+}
+
+.LoaderContainer {
+  padding: 10px;
+}
+
 li {
   /* padding: 10px; */
   overflow: auto;

@@ -4,7 +4,6 @@ import './App.css';
 import ShopListItem from './components/ShopListItem'
 import { connect } from 'react-redux'
 import { loadProducts } from './actions'
-// import ReactSpinner from 'reactjs-spinner'
 import Loader from 'react-loader-spinner'
 
 class App extends Component {
@@ -65,7 +64,11 @@ class App extends Component {
   }
 
   renderLoader() {
-    return <Loader type="TailSpin" color="#somecolor" height={80} width={80} />;
+    return (
+      <div className="LoaderContainer">
+        <Loader type="TailSpin" color="#somecolor" height={80} width={80} />
+      </div>
+    );
   }
 
   render() {
@@ -78,6 +81,7 @@ class App extends Component {
         </header>
         <div className={contentContainerStyle}>
           { products ? this.renderProductList() : this.renderLoader() }
+          <div className="Footer" />
         </div>
       </div>
     );

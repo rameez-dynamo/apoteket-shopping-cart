@@ -50,3 +50,7 @@
 .ThumbnailContainer {
   background-color: green;
 }
+
+.CartButtonsContainer {
+  padding: 0px;
+}

@@ -1,0 +1,25 @@
+.Button {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  text-align: center;
+  margin: auto;
+}
+
+.ButtonMobile {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  text-align: center;
+  margin: auto;
+}
+
+.ItemCount {
+  text-align: center;
+  margin: auto;
+}
+
+.Container {
+  margin-top: 30px;
+  background-color: pink;
+}
