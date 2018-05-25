@@ -26,7 +26,7 @@ class CartPreview extends Component {
 
   render() {
     const { cartItems, windowIsMobile } = this.state;
-    const cartMessage = cartItems.length == 0 ? "Cart is empty" : `${cartItems.length} items in cart.`
+    const cartMessage = cartItems.length == 0 ? "Cart is empty" : `${cartItems.length} items.`
     const mobile = windowIsMobile ? 'Mobile' : '';
     return (
       <div>

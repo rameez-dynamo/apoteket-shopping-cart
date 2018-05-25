@@ -26,6 +26,8 @@
   color: white;
   font: 200 12px/1.5 Helvetica-Neue, Helvetica, sans-serif;
   line-height: 25px;
+  float: right;
+  text-align: right;
   /* margin: auto; */
 }
 
@@ -33,6 +35,8 @@
   color: white;
   font: 200 8px/1.5 Helvetica-Neue, Helvetica, sans-serif;
   line-height: 20px;
+  float: right;
+  text-align: right;
   /* margin: auto; */
 }
 
