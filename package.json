@@ -8,6 +8,7 @@
     "react-grid-system": "^3.2.3",
     "react-loader-spinner": "^2.1.0",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
     "reactjs-spinner": "https://github.com/jmcginty/react-spinner",
     "redux": "^4.0.0",
