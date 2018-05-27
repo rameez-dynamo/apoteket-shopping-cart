@@ -7,19 +7,12 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['cart']
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-function configureStore() {
-  return createStore(
-    persistedReducer,
-    applyMiddleware(thunk)
-  );
-}
-
-let store = configureStore()
-let persistor = persistStore(store)
-
-module.exports = { store, persistor }
+export const store = createStore(
+  persistedReducer,
+  applyMiddleware(thunk)
+);
+export const persistor = persistStore(store)

@@ -4,6 +4,7 @@ import { Col, Row, Container } from 'react-grid-system';
 import cart from '../cart.gif'
 import LinkButton from './LinkButton'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
 class CartPreview extends Component {
   constructor(props) {
@@ -31,7 +32,12 @@ class CartPreview extends Component {
 
   render() {
     const { windowIsMobile } = this.state;
-    const cartMessage = this.props.cart.length == 0 ? "Cart is empty" : `${this.props.cart.length} items.`
+
+    const items = _.sumBy(this.props.cart, (item) => {
+      return item.Quantity;
+    })
+
+    const cartMessage = this.props.cart.length == 0 ? "Cart is empty" : `${items} items.`
     const mobile = windowIsMobile ? 'Mobile' : '';
     return (
       <div>

@@ -34,7 +34,7 @@ class ShopListItem extends Component {
       return item.Id == this.props.product.Id;
     })
     this.setState({
-      itemCount: items.length
+      itemCount: items.length > 0 ? items[0].Quantity : 0
     })
   }
 

@@ -12,6 +12,7 @@ import {
   GET_CART_SUCCESS,
   GET_CART_IN_PROGRESS,
 } from '../constants';
+import _ from 'lodash';
 
 const initialState = {
   products: [],
@@ -21,6 +22,11 @@ const initialState = {
   getCartInProgress: false,
   deleteCartInProgress: false,
 };
+
+const replaceObject = (arr, oldValue, newObject) => {
+  var index = _.findIndex(arr, {id: 1});
+  arr.splice(index, 1, newObject);
+}
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -53,8 +59,20 @@ const rootReducer = (state = initialState, action) => {
 
     case ADD_ITEM_TO_CART_SUCCESS:
       var newCart = Array.from(state.cart)
-      newCart.push(action.cartItem)
-      // console.log('Adding item to state cart', action.cartItem, newCart) 
+      var index = _.findIndex(newCart, (item) => {
+        return item.Id == action.cartItem.Id;
+      })
+
+      if (index < 0) {
+        newCart.push(action.cartItem)
+      } else {
+        var item = newCart[index];
+        const newQuantity = item.Quantity + 1;
+        newCart.splice(index, 1, {
+          ...newCart,
+          Quantity: newQuantity
+        })
+      }
       return {
         ...state,
         cart: newCart,
