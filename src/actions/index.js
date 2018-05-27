@@ -40,16 +40,18 @@ export const loadProductsInProgress = () => ({ type: LOAD_PRODUCTS_IN_PROGRESS }
 export const loadProductsSuccess = products => ({ type: LOAD_PRODUCTS_SUCCESS, products });
 export const loadProductsFailure = error => ({ type: LOAD_PRODUCTS_FAILURE, error });
 
-export const addItemToCart = (cartItem, price) => {
+export const addItemToCart = (cartItem) => {
   return (dispatch, getState) => {
+    const { Id, Price, Quantity } = cartItem;
     const { cart } = getState();
     const totalCost = _.sumBy(cart, (item) => {
       return item.Price;
     })
+    // console.log('Calculated total cost', cart, totalCost, totalCost + cartItem.Price)
 
-    if (totalCost + price <= cartMaxPriceLimit) {
+    if (totalCost + Price <= cartMaxPriceLimit) {
       dispatch(addItemToCartInProgress())
-      api.addItemToCart(cartItem).then((res) => {
+      api.addItemToCart({ Id, Quantity }).then((res) => {
 
         if (res instanceof Error) {
           console.error('Error adding cart item', res)

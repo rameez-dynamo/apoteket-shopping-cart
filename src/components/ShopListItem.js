@@ -62,7 +62,8 @@ class ShopListItem extends Component {
                 this.props.addItemToCart({
                   Id,
                   Quantity: 1,
-                }, Price)
+                  Price
+                })
               }}
               onDecrement={() => {
                 var count = this.state.itemCount-1;
@@ -86,7 +87,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    addItemToCart: (cartItem, price) => dispatch(addItemToCart(cartItem, price))
+    addItemToCart: (cartItem) => dispatch(addItemToCart(cartItem))
   })
 }
 
