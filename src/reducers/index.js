@@ -79,6 +79,7 @@ const rootReducer = (state = initialState, action) => {
         addItemToCartInProgress: false
       }
     case ADD_ITEM_TO_CART_FAILURE:
+      alert('Failed to add item. Please try again.')
       return {
         ...state,
         addItemToCartInProgress: false
