@@ -16,6 +16,7 @@
     "react-scripts": "1.1.4",
     "reactjs-spinner": "https://github.com/jmcginty/react-spinner",
     "redux": "^4.0.0",
+    "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {

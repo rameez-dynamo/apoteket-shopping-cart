@@ -1,6 +1,5 @@
 import './CartButtons.css';
 import React, { Component } from 'react';
-// import { Col, Row, Container } from 'react-grid-system';
 import { Col, Row, Grid, Button } from 'react-bootstrap';
 
 export default class CartButtons extends Component {
@@ -28,7 +27,7 @@ export default class CartButtons extends Component {
      return (
        <Grid className="Container">
         <Row>
-          <Col md={2}>
+          <Col xs={4} sm={4} md={4}>
             <span className="ItemCount">{this.state.itemCount}</span>
           </Col>
           <Col >

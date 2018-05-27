@@ -60,9 +60,8 @@ class ShopListItem extends Component {
               disabled={this.props.addItemToCartInProgress}
               onIncrement={() => {
                 this.props.addItemToCart({
-                  Id,
+                  ...product,
                   Quantity: 1,
-                  Price
                 })
               }}
               onDecrement={() => {
