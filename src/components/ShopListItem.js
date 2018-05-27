@@ -59,15 +59,10 @@ class ShopListItem extends Component {
               itemCount={this.state.itemCount}
               disabled={this.props.addItemToCartInProgress}
               onIncrement={() => {
-                // var count = this.state.itemCount+1;
-                // console.log('incrementing to ', count)
-                // this.setState({
-                //   itemCount: count
-                // })
                 this.props.addItemToCart({
                   Id,
                   Quantity: 1,
-                })
+                }, Price)
               }}
               onDecrement={() => {
                 var count = this.state.itemCount-1;
@@ -91,7 +86,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    addItemToCart: (cartItem) => dispatch(addItemToCart(cartItem))
+    addItemToCart: (cartItem, price) => dispatch(addItemToCart(cartItem, price))
   })
 }
 

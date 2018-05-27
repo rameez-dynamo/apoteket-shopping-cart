@@ -13,6 +13,9 @@ import {
   GET_CART_IN_PROGRESS,
 } from '../constants';
 import api from '../api';
+import _ from 'lodash';
+
+const cartMaxPriceLimit = 5000;
 
 export const loadProducts = () => {
   return dispatch => {
@@ -37,20 +40,30 @@ export const loadProductsInProgress = () => ({ type: LOAD_PRODUCTS_IN_PROGRESS }
 export const loadProductsSuccess = products => ({ type: LOAD_PRODUCTS_SUCCESS, products });
 export const loadProductsFailure = error => ({ type: LOAD_PRODUCTS_FAILURE, error });
 
-export const addItemToCart = (cartItem) => {
-  return dispatch => {
-    dispatch(addItemToCartInProgress())
-    api.addItemToCart(cartItem).then((res) => {
-      if (res instanceof Error) {
-        console.error('Error adding cart item', res)
-        dispatch(addItemToCartFailure(res))
-      } else {
-        dispatch(addItemToCartSuccess(cartItem));
-      }
-    }).catch((error) => {
-      console.error('Error adding cart item', error)
-      dispatch(addItemToCartFailure(error))
+export const addItemToCart = (cartItem, price) => {
+  return (dispatch, getState) => {
+    const { cart } = getState();
+    const totalCost = _.sumBy(cart, (item) => {
+      return item.Price;
     })
+
+    if (totalCost + price <= cartMaxPriceLimit) {
+      dispatch(addItemToCartInProgress())
+      api.addItemToCart(cartItem).then((res) => {
+
+        if (res instanceof Error) {
+          console.error('Error adding cart item', res)
+          dispatch(addItemToCartFailure(res))
+        } else {
+          dispatch(addItemToCartSuccess(cartItem));
+        }
+      }).catch((error) => {
+        console.error('Error adding cart item', error)
+        dispatch(addItemToCartFailure(error))
+      })
+    } else {
+      alert(`Cannot add any more products. You can only make a purchase for upto SEK ${cartMaxPriceLimit}:-.`)
+    }
   }
 }
 

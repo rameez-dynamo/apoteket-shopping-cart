@@ -28,14 +28,6 @@ export default class CartButtons extends Component {
      return (
        <Grid className="Container">
         <Row>
-          <Col>
-            <Button
-              bsStyle="secondary"
-              className={buttonStyle}
-              onClick={this.props.onDecrement}
-              disabled={this.props.disabled}
-              >{'-'}</Button>
-          </Col>
           <Col md={2}>
             <span className="ItemCount">{this.state.itemCount}</span>
           </Col>
@@ -45,7 +37,7 @@ export default class CartButtons extends Component {
               className={buttonStyle}
               onClick={this.props.onIncrement}
               disabled={this.props.disabled}
-              >{'+'}</Button>
+              >{'Add'}</Button>
           </Col>
         </Row>
        </Grid>
