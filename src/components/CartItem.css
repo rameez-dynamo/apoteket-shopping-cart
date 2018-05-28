@@ -11,6 +11,7 @@
 .CartItemRowMobile {
   width: 250px;
   background-color: pink;
+  font-size: 12px;
 }
 
 .CartItemPic {

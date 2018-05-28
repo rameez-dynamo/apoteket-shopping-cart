@@ -60,7 +60,7 @@ export default class ApoteketApi {
          }),
      }).then(response => {
        if (response.ok) {
-         return response.json();
+         return null;
        } else {
          throw new Error('Error clearing cart')
        }
