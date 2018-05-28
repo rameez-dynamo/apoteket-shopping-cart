@@ -4,13 +4,13 @@
 
 .CartItemRow {
   max-width: 500px;
-  background-color: pink;
+  /* background-color: pink; */
   margin: auto;
 }
 
 .CartItemRowMobile {
   width: 100%;
-  background-color: pink;
+  /* background-color: pink; */
   font-size: 12px;
 }
 
@@ -29,5 +29,5 @@
 .CartItemPrice {
   float: right;
   text-align: right;
-  background-color: green;
+  /* background-color: green; */
 }
