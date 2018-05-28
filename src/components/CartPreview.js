@@ -18,12 +18,16 @@ class CartPreview extends Component {
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
+  componentDidMount() {
+    this.handleWindowSizeChange()
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ windowIsMobile: window.innerWidth < 500 });
+    this.setState({ windowIsMobile: window.innerWidth < 580 });
   }
 
   componentWillReceiveProps(nextProps) {

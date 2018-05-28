@@ -17,7 +17,7 @@ const CartItem = (props) => {
           <p>{total ? "Total" : `Qty: ${product.Quantity}`}</p>
         </Col>
         <Col xs={2} sm={3} md={3}>
-          <p className="CartItemPrice">{`SEK ${total ? total.value : product.Price * product.Quantity}`}</p>
+          <p className="CartItemPrice">{`SEK ${total ? (total.value).toFixed(2) : product.Price * product.Quantity}`}</p>
         </Col>
       </Row>
     </Grid>

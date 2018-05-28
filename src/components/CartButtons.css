@@ -2,34 +2,33 @@
   height: 40px;
   padding: 0 5px 0 5px;
   text-align: center;
-  margin: auto;
-  float: right;
+  /* margin: auto; */
+  /* float: right; */
 }
 
 .ButtonMobile {
   height: 30px;
   padding: 0 5px 0 5px;
   text-align: center;
-  margin: auto;
-  float: right;
+  /* margin: auto; */
+  /* float: right; */
 }
 
 .ItemCount {
   /* text-align: center; */
-  background-color: green;
-  height: 100%;
-  margin: auto;
+  /* background-color: green; */
+  line-height: 40px;
 }
 
 .ItemCountContainer {
-  align-content: center;
-  justify-content: center;
+  /* align-content: center;
+  justify-content: center; */
   background-color: orange;
-  margin: auto;
-  height: 100%;
+  /* margin: auto; */
+  height: 40px;
 }
 
 .Container {
   margin-top: 30px;
-  background-color: pink;
+  /* background-color: pink; */
 }

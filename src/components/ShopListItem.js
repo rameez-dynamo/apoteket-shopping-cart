@@ -25,7 +25,7 @@ class ShopListItem extends Component {
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ windowIsMobile: window.innerWidth < 500 });
+    this.setState({ windowIsMobile: window.innerWidth < 580 });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,15 +45,15 @@ class ShopListItem extends Component {
     return (
       <Container className="ShopListItem">
         <Row>
-          <Col xs={2.5} sm={2.5} md={2.5} lg={2} xl={2} className="ThumbnailContainer">
+          <Col xs={2} sm={2} md={2.5} lg={2} xl={2} className="ThumbnailContainer">
             <img className={thumbNailStyle} src={Pic} />
           </Col>
-          <Col className="MidSection">
+          <Col className="MidSection" xs={7} sm={6}>
             <h3 className="ShopListItemTitle">{Name}</h3>
             <p className="ShopListItemDescription">{Description}</p>
             <p className="ShopListItemPrice">{`SEK ${Price}:-`}</p>
           </Col>
-          <Col xs={2.5} sm={2.5} md={2.5} lg={2} xl={2} className="CartButtonsContainer">
+          <Col xs={2} sm={3} md={2.5} lg={2} xl={2} className="CartButtonsContainer">
             <CartButtons
               isMobile={this.state.windowIsMobile}
               itemCount={this.state.itemCount}

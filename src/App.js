@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ windowIsMobile: window.innerWidth < 500 });
+    this.setState({ windowIsMobile: window.innerWidth < 580 });
   };
 
   render() {

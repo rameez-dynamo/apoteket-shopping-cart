@@ -27,10 +27,10 @@ export default class CartButtons extends Component {
      return (
        <Grid className="Container">
         <Row>
-          <Col xs={4} sm={4} md={4}>
+          <Col xs={2} sm={4} md={4}>
             <span className="ItemCount">{this.state.itemCount}</span>
           </Col>
-          <Col >
+          <Col xs={2}>
             <Button
               bsStyle="secondary"
               className={buttonStyle}

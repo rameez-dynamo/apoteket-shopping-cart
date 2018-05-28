@@ -19,8 +19,8 @@ import {
 import _ from 'lodash';
 
 const initialState = {
-  products: [],
-  cart: [],
+  products: null,
+  cart: null,
   loadProductsInProgress: false,
   addItemToCartInProgress: false,
   getCartInProgress: false,
