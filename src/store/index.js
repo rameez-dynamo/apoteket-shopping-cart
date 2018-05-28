@@ -7,6 +7,15 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: [
+    'cart'
+  ],
+  blacklist: [
+    'loadProductsInProgress',
+    'addItemToCartInProgress',
+    'getCartInProgress',
+    'deleteCartInProgress'
+  ]
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

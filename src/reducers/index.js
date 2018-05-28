@@ -11,6 +11,10 @@ import {
   GET_CART_FAILURE,
   GET_CART_SUCCESS,
   GET_CART_IN_PROGRESS,
+  CLEAR_CART,
+  CLEAR_CART_FAILURE,
+  CLEAR_CART_SUCCESS,
+  CLEAR_CART_IN_PROGRESS,
 } from '../constants';
 import _ from 'lodash';
 
@@ -69,7 +73,7 @@ const rootReducer = (state = initialState, action) => {
         var item = newCart[index];
         const newQuantity = item.Quantity + 1;
         newCart.splice(index, 1, {
-          ...newCart,
+          ...item,
           Quantity: newQuantity
         })
       }
@@ -97,10 +101,29 @@ const rootReducer = (state = initialState, action) => {
         cart: action.cart,
         getCartInProgress: false
       }
+
     case GET_CART_FAILURE:
       return {
         ...state,
         getCartInProgress: false
+      }
+
+    case CLEAR_CART_FAILURE:
+      alert('Could not clear cart. Please try again.')
+      return {
+        ...state,
+        clearCartInProgress: false
+      }
+    case CLEAR_CART_SUCCESS:
+      return {
+        ...state,
+        cart: [],
+        clearCartInProgress: false,
+      }
+    case CLEAR_CART_IN_PROGRESS:
+      return {
+        ...state,
+        clearCartInProgress: true
       }
 
     default:

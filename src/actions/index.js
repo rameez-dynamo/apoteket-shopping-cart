@@ -11,6 +11,10 @@ import {
   GET_CART_FAILURE,
   GET_CART_SUCCESS,
   GET_CART_IN_PROGRESS,
+  CLEAR_CART,
+  CLEAR_CART_FAILURE,
+  CLEAR_CART_SUCCESS,
+  CLEAR_CART_IN_PROGRESS,
 } from '../constants';
 import api from '../api';
 import _ from 'lodash';
@@ -94,3 +98,25 @@ export const getCart = () => {
 export const getCartInProgress = () => ({type: GET_CART_IN_PROGRESS});
 export const getCartSuccess = cart => ({type: GET_CART_SUCCESS, cart });
 export const getCartFailure = error => ({type: GET_CART_FAILURE, error });
+
+export const clearCart = () => {
+  return dispatch => {
+    dispatch(clearCartInProgress())
+    api.clearCart().then((res) => {
+      if (res instanceof Error) {
+        console.error('Error clearing cart', res)
+        dispatch(clearCartFailure(res))
+      } else {
+        console.log('Cleared cart', res)
+        dispatch(clearCartSuccess(res));
+      }
+    }).catch((error) => {
+      console.error('Error clearing cart', error)
+      dispatch(clearCartFailure(error))
+    })
+  }
+}
+
+export const clearCartInProgress = () => ({type: CLEAR_CART_IN_PROGRESS});
+export const clearCartSuccess = () => ({type: CLEAR_CART_SUCCESS });
+export const clearCartFailure = error => ({type: CLEAR_CART_FAILURE, error });

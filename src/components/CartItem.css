@@ -1,0 +1,32 @@
+.CartItemContainer {
+  margin: auto;
+}
+
+.CartItemRow {
+  width: 500px;
+  background-color: pink;
+  margin: auto;
+}
+
+.CartItemRowMobile {
+  width: 250px;
+  background-color: pink;
+}
+
+.CartItemPic {
+  height: 20px;
+  width: 20px;
+  border: 1px;
+  border-color: grey;
+}
+
+.CartItemProductName {
+  float: left;
+  text-align: left;
+}
+
+.CartItemPrice {
+  float: right;
+  text-align: right;
+  background-color: green;
+}

@@ -1,5 +1,5 @@
 .CartContainer {
-  max-width: 70%;
+  width: 500px;
   background-color: white;
   margin: auto;
   padding-top: 80px;
@@ -7,5 +7,17 @@
 
 .CartContainerMobile {
   margin: auto;
+  width: 250px;
   padding-top: 80px;
+}
+
+.ClearCart {
+  margin-top: 8px;
+  float: right;
+}
+
+.EmptyCart {
+  color: grey;
+  height: 60px;
+  margin: auto;
 }
