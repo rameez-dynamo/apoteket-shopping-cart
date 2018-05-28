@@ -25,7 +25,7 @@ class ProductList extends Component {
 
   componentWillMount() {
     this.props.loadProducts();
-    this.props.getCart();
+    // this.props.getCart();
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 

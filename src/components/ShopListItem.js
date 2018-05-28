@@ -26,6 +26,7 @@ class ShopListItem extends Component {
 
   componentDidMount() {
     this.handleWindowSizeChange()
+    this.resolveItemCount(this.props)
   }
 
   handleWindowSizeChange = () => {
@@ -33,7 +34,11 @@ class ShopListItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { cart } = nextProps;
+    this.resolveItemCount(nextProps)
+  }
+
+  resolveItemCount = (myProps) => {
+    const { cart } = myProps;
     const items = _.filter(cart, (item) => {
       return item.Id == this.props.product.Id;
     })
