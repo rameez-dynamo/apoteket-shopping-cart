@@ -3,13 +3,13 @@
 }
 
 .CartItemRow {
-  width: 500px;
+  max-width: 500px;
   background-color: pink;
   margin: auto;
 }
 
 .CartItemRowMobile {
-  width: 250px;
+  width: 100%;
   background-color: pink;
   font-size: 12px;
 }

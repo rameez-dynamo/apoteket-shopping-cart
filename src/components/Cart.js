@@ -47,12 +47,24 @@ class Cart extends Component {
           }
           {
             cart.map((cartItem) => {
-              return <li>
-                <CartItem isMobile={this.state.windowIsMobile} product={cartItem} key={cartItem.Id}/>
+              return <li
+                style={{
+                  marginLeft: windowIsMobile ? 25 : 0
+                }}
+              >
+                <CartItem
+                  isMobile={this.state.windowIsMobile}
+                  product={cartItem}
+                  key={cartItem.Id}
+                />
               </li>
             })
           }
-          { !cartIsEmpty && <li>
+          { !cartIsEmpty && <li
+              style={{
+                marginLeft: windowIsMobile ? 25 : 0
+              }}
+            >
             <CartItem isMobile={this.state.windowIsMobile} total={{
               value: _.sumBy(cart, (obj) => {
                 return obj.Price * obj.Quantity;
@@ -61,6 +73,9 @@ class Cart extends Component {
           </li> }
           <li>
             <Button
+              style={{
+                marginRight: windowIsMobile ? 25 : 0
+              }}
               bsStyle="danger"
               className="ClearCart"
               onClick={this.props.clearCart}

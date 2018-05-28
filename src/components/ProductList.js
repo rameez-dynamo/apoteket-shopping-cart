@@ -29,6 +29,10 @@ class ProductList extends Component {
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
+  componentDidMount() {
+    this.handleWindowSizeChange()
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }

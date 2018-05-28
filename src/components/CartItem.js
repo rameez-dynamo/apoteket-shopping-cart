@@ -4,24 +4,56 @@ import { Col, Row, Grid } from 'react-bootstrap';
 
 const CartItem = (props) => {
   const { product, isMobile, total } = props;
+  const styles = getStyles()
   return (
-    <Grid className="CartItemContainer">
-      <Row className={`CartItemRow${ isMobile ? "Mobile" : "" }`}>
-        <Col xs={1} sm={1} md={1}>
+    <Grid style={styles.container}>
+      <Row style={styles.row}>
+        <Col style={styles.picContainer}>
           { !total && <img src={product.Pic} className="CartItemPic" /> }
         </Col>
-        <Col xs={3} sm={5} md={5}>
+        <Col style={styles.productName}>
           { !total && <p className="CartItemProductName">{product.Name}</p> }
         </Col>
-        <Col xs={2} sm={3} md={3}>
+        <Col style={{
+          backgroundColor: 'yellow',
+          flex: 0.5,
+          textAlign: 'right'
+        }}>
           <p>{total ? "Total" : `Qty: ${product.Quantity}`}</p>
         </Col>
-        <Col xs={2} sm={3} md={3}>
+        <Col style={{
+          backgroundColor: 'salmon',
+          float: 'right',
+          flex: 0.75
+        }}>
           <p className="CartItemPrice">{`SEK ${total ? (total.value).toFixed(2) : product.Price * product.Quantity}`}</p>
         </Col>
       </Row>
     </Grid>
   )
 }
+
+const getStyles = (function() {
+  const isMobile = window.innerWidth < 580;
+  return ({
+    container: {
+      fontSize: isMobile ? 12 : 18,
+    },
+    row: {
+      width: isMobile ? "100%" : 500,
+    },
+    picContainer: {
+      backgroundColor: 'blue',
+      flex: 0.25,
+      borderWidth: 1,
+      borderColor: 'grey'
+    },
+    productName: {
+      backgroundColor: 'red',
+      flex: 3,
+      paddingLeft: 10,
+    }
+  })
+})
 
 export default CartItem;

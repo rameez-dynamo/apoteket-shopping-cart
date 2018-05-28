@@ -20,7 +20,7 @@ import _ from 'lodash';
 
 const initialState = {
   products: null,
-  cart: null,
+  cart: [], //[{"Id":1,"Name":"Postafen®","Description":"Tablett 25 mg 10 styck Blister","Pic":"https://www.apoteket.se/produktbilder/Validoo/165787s.jpg","Price":63.2,"Buyable":true,"Quantity":1},{"Id":2,"Name":"Novalucol®","Description":"Tuggtablett 100 styck Blister","Pic":"https://www.apoteket.se/produktbilder/Validoo/478248s.jpg","Price":82,"Buyable":true,"Quantity":1}],
   loadProductsInProgress: false,
   addItemToCartInProgress: false,
   getCartInProgress: false,

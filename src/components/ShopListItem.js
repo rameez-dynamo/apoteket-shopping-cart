@@ -24,6 +24,10 @@ class ShopListItem extends Component {
     window.removeEventListener('resize', this.handleWindowSizeChange);
   }
 
+  componentDidMount() {
+    this.handleWindowSizeChange()
+  }
+
   handleWindowSizeChange = () => {
     this.setState({ windowIsMobile: window.innerWidth < 580 });
   }

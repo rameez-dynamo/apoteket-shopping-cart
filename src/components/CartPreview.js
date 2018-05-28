@@ -30,9 +30,9 @@ class CartPreview extends Component {
     this.setState({ windowIsMobile: window.innerWidth < 580 });
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('CartPreview receiving new props', nextProps)
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('CartPreview receiving new props', JSON.stringify(nextProps.cart))
+  // }
 
   render() {
     const { windowIsMobile } = this.state;
