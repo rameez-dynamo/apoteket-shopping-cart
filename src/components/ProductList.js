@@ -61,6 +61,7 @@ class ProductList extends Component {
     const { products } = this.state;
     return (
       <ul>
+        <li><h2>Product list</h2></li>
         { products.map(this.renderListItem) }
       </ul>
     )

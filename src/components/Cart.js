@@ -38,6 +38,7 @@ class Cart extends Component {
     return (
       <div className={`CartContainer${ windowIsMobile ? "Mobile" : "" }`}>
         <ul>
+          <li><h2>Cart</h2></li>
           {
             cartIsEmpty && <li>
               <div className="EmptyCart">
